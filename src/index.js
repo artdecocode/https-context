@@ -51,7 +51,13 @@ export class HTTPContext {
   setHeaders(headers) {
     this.headers = headers
   }
-
+  /**
+   * Set the content type for the response.
+   * @param {string} contentType The response content type.
+   */
+  setContentType(contentType) {
+    this.contentType = contentType
+  }
   async _init() {
     const server = createServer(this.handler.bind(this))
     this.server = server

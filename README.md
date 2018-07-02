@@ -17,6 +17,7 @@ yarn add -DE https-context
   * [`url(): string`](#url-string)
   * [`setResponse(data: string|Buffer)`](#setresponsedata-stringbuffer-void)
   * [`setHeaders(headers: Object)`](#setheadersheaders-object-void)
+  * [`setContentType(contentType: string)`](#setcontenttypecontenttype-string-void)
   * [`state(): State`](#state-state)
   * [`State` Type](#state-type)
     * [<code>called</code>](#called)
@@ -28,7 +29,7 @@ yarn add -DE https-context
 The context can be used by setting it in a `zoroaster` test case:
 
 ```javascript
-import { equal, ok, deepEqual } from 'zoroaster/assert'
+import { ok, deepEqual } from 'zoroaster/assert'
 import rqt from 'rqt'
 import { HTTPContext } from 'https-context'
 
@@ -38,9 +39,12 @@ const T = {
   async 'starts the context'({ url }) {
     ok(url)
   },
-  async 'responds to the message'({ url, response }) {
+  async 'responds to the message'({ url, setResponse, setContentType }) {
+    const d = { hello: 'world' }
+    setResponse(JSON.stringify(d))
+    setContentType('application/json')
     const res = await rqt(url)
-    equal(res, response)
+    deepEqual(res, d)
   },
   async 'sends headers'({ url, state, host }) {
     const headers = {
@@ -81,6 +85,10 @@ Sets the response with which the server will end the request. `OK` by default.
 ### `setHeaders(`<br/>&nbsp;&nbsp;`headers: Object,`<br/>`): void`
 
 Sets the headers which are sent back to the client.
+
+### `setContentType(`<br/>&nbsp;&nbsp;`contentType: string,`<br/>`): void`
+
+Sets the content type of the response. If not set, `text/plain` will be used by default.
 
 ### `state(): State`
 

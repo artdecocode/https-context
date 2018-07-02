@@ -1,4 +1,4 @@
-import { equal, ok, deepEqual } from 'zoroaster/assert'
+import { ok, deepEqual } from 'zoroaster/assert'
 import rqt from 'rqt'
 import { HTTPContext } from '../../src'
 
@@ -8,9 +8,12 @@ const T = {
   async 'starts the context'({ url }) {
     ok(url)
   },
-  async 'responds to the message'({ url, response }) {
+  async 'responds to the message'({ url, setResponse, setContentType }) {
+    const d = { hello: 'world' }
+    setResponse(JSON.stringify(d))
+    setContentType('application/json')
     const res = await rqt(url)
-    equal(res, response)
+    deepEqual(res, d)
   },
   async 'sends headers'({ url, state, host }) {
     const headers = {

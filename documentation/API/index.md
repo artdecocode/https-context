@@ -37,6 +37,14 @@ Sets the response with which the server will end the request. `OK` by default.
 
 Sets the headers which are sent back to the client.
 
+```### setContentType
+[
+  ["contentType", "string"]
+]
+```
+
+Sets the content type of the response. If not set, `text/plain` will be used by default.
+
 ```### state => State
 ```
 
