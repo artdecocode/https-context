@@ -12,6 +12,8 @@ yarn add -E https-context
 
 - [Table Of Contents](#table-of-contents)
 - [HTTP API](#http-api)
+  * [`response(): string|buffer`](#response-stringbuffer)
+  * [`url(): string`](#url-string)
   * [`setResponse(data: string|Buffer)`](#setresponsedata-stringbuffer-void)
   * [`setHeaders(headers: Object)`](#setheadersheaders-object-void)
   * [`state(): State`](#state-state)
@@ -45,13 +47,11 @@ const T = {
 export default T
 ```
 
-```response => "string|buffer"
-```
+### `response(): string|buffer`
 
 Returns what the response was set to (default `OK`).
 
-```url => "string"
-```
+### `url(): string`
 
 Returns the server `url`.
 
@@ -83,19 +83,19 @@ Get the state of the context, according to the [State type](#state-type).
   <td><a name="called"><code>called</code></a></td>
   <td><em>number</em></td>
   <td>The number of times the server was called. Starts with 0.</td>
-  <td>`0`, `2`, `3`</td>
+  <td>0, 2, 3</td>
  </tr>
  <tr>
   <td><a name="headers"><code>headers</code></a></td>
   <td><em>object</em></td>
   <td>Request headers used previously.</td>
-  <td>`{}`</td>
+  <td>{}</td>
  </tr>
  <tr>
   <td><a name="postdata"><code>postData</code></a></td>
   <td><em>string</em></td>
   <td>The data sent with the request via any method other than `POST`.</td>
-  <td>`Hello World`</td>
+  <td>Hello World</td>
  </tr>
  </tbody>
 </table>
@@ -105,7 +105,7 @@ Get the state of the context, according to the [State type](#state-type).
 ```js
 import { createServer } from 'http'
 import { debuglog } from 'util'
-import { Socket } from 'net' // eslint-disable-line no-unused-vars
+const { Socket } = require('net') // eslint-disable-line no-unused-vars
 import Catchment from 'catchment'
 
 const LOG = debuglog('https-context')
@@ -174,7 +174,6 @@ export class HTTPContext {
       this.server.listen(undefined, 'localhost', resolve)
     })
     this.address = server.address()
-    // this._url = `http://${this.address.address}:${this.address.port}`
   }
   /** Returns address of the server
    * @example
@@ -220,11 +219,6 @@ export class HTTPContext {
     res.end(this._response)
   }
 }
-
-/**
- * @typedef {Object} Config
- * @property {string} type The type.
- */
 ```
 
 ---
