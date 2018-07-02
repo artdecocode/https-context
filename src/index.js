@@ -33,7 +33,6 @@ export class HTTPContext {
     this.headers = {}
 
     this.state = {
-      postPromise: null,
       called: 0,
       headers: {},
       postData: null,
