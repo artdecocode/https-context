@@ -1,6 +1,6 @@
 {
   "name": "https-context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Zoroaster test context that sets up an HTTP and self-signed HTTPS servers.",
   "main": "build",
   "scripts": {
