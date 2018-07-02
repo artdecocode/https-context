@@ -1,6 +1,6 @@
 import { createServer } from 'http'
 import { debuglog } from 'util'
-import { Socket } from 'net' // eslint-disable-line no-unused-vars
+const { Socket } = require('net') // eslint-disable-line no-unused-vars
 import Catchment from 'catchment'
 
 const LOG = debuglog('https-context')
@@ -69,7 +69,6 @@ export class HTTPContext {
       this.server.listen(undefined, 'localhost', resolve)
     })
     this.address = server.address()
-    // this._url = `http://${this.address.address}:${this.address.port}`
   }
   /** Returns address of the server
    * @example
@@ -115,8 +114,3 @@ export class HTTPContext {
     res.end(this._response)
   }
 }
-
-/**
- * @typedef {Object} Config
- * @property {string} type The type.
- */
