@@ -73,11 +73,20 @@ export class HTTPContext {
   /** Returns address of the server
    * @example
    *
-   * `http://localhost:59292`
+   * `http://127.0.0.1:59292`
    */
   get url() {
     if (!this.address) return null
-    return `http://${this.address.address}:${this.address.port}`
+    return `http://${this.host}`
+  }
+  /** Returns host of the server
+   * @example
+   *
+   * `127.0.0.1:59292`
+   */
+  get host() {
+    if (!this.address) return null
+    return `${this.address.address}:${this.address.port}`
   }
   async _destroy() {
     await new Promise(async (resolve) => {

@@ -13,6 +13,7 @@ yarn add -E https-context
 - [Table Of Contents](#table-of-contents)
 - [HTTP API](#http-api)
   * [`response(): string|buffer`](#response-stringbuffer)
+  * [`host(): string`](#host-string)
   * [`url(): string`](#url-string)
   * [`setResponse(data: string|Buffer)`](#setresponsedata-stringbuffer-void)
   * [`setHeaders(headers: Object)`](#setheadersheaders-object-void)
@@ -28,7 +29,7 @@ yarn add -E https-context
 The context can be used by setting it in a `zoroaster` test case:
 
 ```javascript
-import { equal, ok } from 'zoroaster/assert'
+import { equal, ok, deepEqual } from 'zoroaster/assert'
 import rqt from 'rqt'
 import { HTTPContext } from 'https-context'
 
@@ -42,6 +43,20 @@ const T = {
     const res = await rqt(url)
     equal(res, response)
   },
+  async 'sends headers'({ url, state, host }) {
+    const headers = {
+      'user-agent': 'node.js',
+    }
+    await rqt(url, {
+      headers,
+    })
+    ok(state.called)
+    deepEqual(state.headers, {
+      host,
+      connection: 'close',
+      ...headers,
+    })
+  },
 }
 
 export default T
@@ -51,9 +66,14 @@ export default T
 
 Returns what the response was set to (default `OK`).
 
+
+### `host(): string`
+
+The host of the server, e.g., `127.0.0.1:49629`.
+
 ### `url(): string`
 
-Returns the server `url`.
+Returns the server `url`, such as `http://127.0.0.1:49629`.
 
 ### `setResponse(`<br/>&nbsp;&nbsp;`data: string|Buffer,`<br/>`): void`
 
@@ -178,11 +198,20 @@ export class HTTPContext {
   /** Returns address of the server
    * @example
    *
-   * `http://localhost:59292`
+   * `http://127.0.0.1:59292`
    */
   get url() {
     if (!this.address) return null
-    return `http://${this.address.address}:${this.address.port}`
+    return `http://${this.host}`
+  }
+  /** Returns host of the server
+   * @example
+   *
+   * `127.0.0.1:59292`
+   */
+  get host() {
+    if (!this.address) return null
+    return `${this.address.address}:${this.address.port}`
   }
   async _destroy() {
     await new Promise(async (resolve) => {

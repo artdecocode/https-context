@@ -10,10 +10,16 @@ The context can be used by setting it in a `zoroaster` test case:
 
 Returns what the response was set to (default `OK`).
 
+
+```### host => string
+```
+
+The host of the server, e.g., `127.0.0.1:49629`.
+
 ```### url => string
 ```
 
-Returns the server `url`.
+Returns the server `url`, such as `http://127.0.0.1:49629`.
 
 ```### setResponse
 [
