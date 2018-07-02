@@ -2,7 +2,7 @@
 
 %NPM: https-context%
 
-`https-context` is a new Node.js npm package. A Zoroaster test context that sets up an HTTP and self-signed HTTPS servers.
+`https-context` is a Zoroaster test context that sets up an HTTP and self-signed HTTPS servers. It can be used in testing packages that make requests.
 
 ```sh
 yarn add -E https-context
@@ -11,3 +11,7 @@ yarn add -E https-context
 ## Table Of Contents
 
 %TOC%
+
+## Context
+
+%EXAMPLE src/index.js%
