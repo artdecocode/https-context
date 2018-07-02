@@ -9,13 +9,15 @@ var _http = require("http");
 
 var _util = require("util");
 
-var _net = require("net");
-
 var _catchment = _interopRequireDefault(require("catchment"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// eslint-disable-line no-unused-vars
+const {
+  Socket
+} = require('net'); // eslint-disable-line no-unused-vars
+
+
 const LOG = (0, _util.debuglog)('https-context');
 
 class HTTPContext {
@@ -83,7 +85,7 @@ class HTTPContext {
     await new Promise(resolve => {
       this.server.listen(undefined, 'localhost', resolve);
     });
-    this.address = server.address(); // this._url = `http://${this.address.address}:${this.address.port}`
+    this.address = server.address();
   }
   /** Returns address of the server
    * @example
@@ -137,11 +139,6 @@ class HTTPContext {
   }
 
 }
-/**
- * @typedef {Object} Config
- * @property {string} type The type.
- */
-
 
 exports.HTTPContext = HTTPContext;
 //# sourceMappingURL=index.js.map
