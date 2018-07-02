@@ -1,0 +1,42 @@
+{
+  "name": "https-context",
+  "version": "1.0.0",
+  "description": "A Zoroaster test context that sets up an HTTP and self-signed HTTPS servers.",
+  "main": "build",
+  "scripts": {
+    "t": "zoroaster -b",
+    "test": "zoroaster -b test/spec",
+    "test-build": "BABEL_ENV=test-build yarn test",
+    "test-all": "yarn-s test test-build",
+    "test-watch": "yarn test -w",
+    "lint": "eslint .",
+    "doc": "NODE_DEBUG=doc doc documentation -o README.md",
+    "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
+    "e": "node example",
+    "example/": "yarn e example/example.js",
+    "build": "yarn-s b doc",
+    "b": "b --source-maps"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/artdecocode/https-context.git"
+  },
+  "keywords": [
+    "https-context"
+  ],
+  "author": "Anton <anton@adc.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artdecocode/https-context/issues"
+  },
+  "homepage": "https://github.com/artdecocode/https-context#readme",
+  "devDependencies": {
+    "documentary": "1.7.0",
+    "eslint-config-artdeco": "1.0.0",
+    "yarn-s": "1.1.0",
+    "zoroaster": "2.1.0"
+  }
+}
