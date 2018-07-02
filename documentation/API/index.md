@@ -3,7 +3,7 @@
 
 The context can be used by setting it in a `zoroaster` test case:
 
-%EXAMPLE test/spec/http-context.js, ../../src => https-context, javascript%
+%EXAMPLE: test/spec/http-context.js, ../../src => https-context, javascript%
 
 ```response => "string|buffer"
 ```

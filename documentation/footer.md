@@ -1,3 +1,6 @@
+## Implementation
+
+%EXAMPLE: src/index.js%
 
 ---
 

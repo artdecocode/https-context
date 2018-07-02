@@ -11,7 +11,3 @@ yarn add -E https-context
 ## Table Of Contents
 
 %TOC%
-
-## Context
-
-%EXAMPLE src/index.js%
