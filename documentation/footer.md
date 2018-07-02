@@ -1,6 +1,6 @@
-## Implementation
+<!-- ## Implementation
 
-%EXAMPLE: src/index.js%
+%EXAMPLE: src/index.js% -->
 
 ---
 
