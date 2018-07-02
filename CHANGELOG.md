@@ -1,8 +1,12 @@
 ## 2 July 2018
 
+### 1.0.2
+
+- [feature] Set `content-type` of the response.
+
 ### 1.0.1
 
-- [doc] Remove implementation details, `yarn -DE`
+- [doc] Remove implementation details, `yarn -DE`.
 
 ### 1.0.0
 
