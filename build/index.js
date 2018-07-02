@@ -45,7 +45,6 @@ class HTTPContext {
     this._response = 'OK';
     this.headers = {};
     this.state = {
-      postPromise: null,
       called: 0,
       headers: {},
       postData: null
