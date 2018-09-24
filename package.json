@@ -42,6 +42,7 @@
   },
   "homepage": "https://github.com/artdecocode/https-context#readme",
   "devDependencies": {
+    "alamode": "1.5.1",
     "documentary": "1.19.0",
     "eslint-config-artdeco": "1.0.1",
     "rqt": "2.0.0",
