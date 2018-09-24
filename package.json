@@ -4,9 +4,9 @@
   "description": "A Zoroaster test context that sets up an HTTP and self-signed HTTPS servers.",
   "main": "build",
   "scripts": {
-    "t": "zoroaster -b",
-    "test": "zoroaster -b test/spec",
-    "test-build": "BABEL_ENV=test-build yarn test",
+    "t": "zoroaster -a",
+    "test": "yarn t test/spec",
+    "test-build": "ALAMODE_ENV=test-build yarn test",
     "test-all": "yarn-s test test-build",
     "test-watch": "yarn test -w",
     "lint": "eslint .",
