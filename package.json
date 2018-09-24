@@ -15,7 +15,7 @@
     "e": "node example",
     "example/": "yarn e example/example.js",
     "build": "yarn-s b doc",
-    "b": "b --source-maps"
+    "b": "alamode src -o build"
   },
   "files": [
     "build"
@@ -25,7 +25,15 @@
     "url": "git://github.com/artdecocode/https-context.git"
   },
   "keywords": [
-    "https-context"
+    "https-context",
+    "zoroaster",
+    "context",
+    "testing",
+    "test",
+    "http",
+    "https",
+    "server",
+    "tdd"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
@@ -34,13 +42,13 @@
   },
   "homepage": "https://github.com/artdecocode/https-context#readme",
   "devDependencies": {
-    "documentary": "1.8.1",
-    "eslint-config-artdeco": "1.0.0",
+    "documentary": "1.19.0",
+    "eslint-config-artdeco": "1.0.1",
     "rqt": "2.0.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "2.1.0"
+    "zoroaster": "3.5.1"
   },
   "dependencies": {
-    "catchment": "2.0.1"
+    "catchment": "3.1.1"
   }
 }
