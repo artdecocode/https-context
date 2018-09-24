@@ -1,3 +1,9 @@
+## 24 September 2018
+
+### 1.0.3
+
+- [build] Build w/ [`alamode`](https://alamode.cc).
+
 ## 2 July 2018
 
 ### 1.0.2
